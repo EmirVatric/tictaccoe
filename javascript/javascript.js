@@ -2,14 +2,14 @@ const board = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 
 const GameBoard = (() => {
-  const renderBoard = () => {
+  const renderBoard = (move) => {
     const table = document.getElementById('board');
     table.innerHTML = '';
     board.forEach((element, index) => {
       const node = document.createElement('DIV');
       const textnode = document.createTextNode(element);
       node.addEventListener('click', () => {
-        game.move(index);
+        move(index);
       });
       node.appendChild(textnode);
       table.appendChild(node);
@@ -34,18 +34,20 @@ const Controller = () => {
     player2 = Player(name2, figure2);
     currPlayer = player1;
   };
+  const move = (index) => {
+    board[index] = currPlayer.figure;
+    currPlayer = currPlayer === player1 ? player2 : player1;
+    document.getElementById('current-player').innerHTML = currPlayer.name;
+    GameBoard.renderBoard(move);
+  };
   const startGame = () => {
     const player1name = document.getElementById('player1name').value;
     const player2name = document.getElementById('player2name').value;
     const player1figure = document.getElementById('player1figure').value;
     const player2figure = document.getElementById('player2figure').value;
     setPlayers(player1name, player1figure, player2name, player2figure);
-    GameBoard.renderBoard();
-  };
-  const move = (index) => {
-    board[index] = currPlayer.figure;
-    currPlayer = currPlayer === player1 ? player2 : player1;
-    GameBoard.renderBoard();
+    document.getElementById('current-player').innerHTML = currPlayer.name;
+    GameBoard.renderBoard(move);
   };
   return {
     move,
