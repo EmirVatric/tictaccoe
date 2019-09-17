@@ -5,13 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
   <title>TicTacToe</title>
 </head>
-<script src="/javascript/javascript.js"></script>
 
 <body>
+  <input type="text" id='player1name' placeholder='Player1 name'>
+  <input type="text" id='player1figure' placeholder='Player1 figure'><br>
+  <input type="text" id='player2name' placeholder='Player2 name'>
+  <input type="text" id='player2figure' placeholder='Player1 figure'><br>
+  <button id='startGame'>New game</button>
+  <div>
+    Current player : <span id="current-player"></span>
+  </div>
+  <div id='board'>
 
+  </div>
+  <script src="javascript/javascript.js"></script>
 </body>
 
 </html>
