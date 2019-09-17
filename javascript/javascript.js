@@ -47,7 +47,7 @@ const Controller = () => {
     || ((board[2] !== '') && (board[2] === board[4] && board[4] === board[6]));
 
   const checkMatrix = () => checkHorizontal() || checkVertical() || checkCross();
-  const checkDraw = () => board.filter((x) => x === '').length === 0;
+  const checkDraw = () => board.filter(x => x === '').length === 0;
   const move = (index) => {
     if (board[index] !== '') {
       return;
