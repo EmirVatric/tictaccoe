@@ -35,19 +35,19 @@ const Controller = () => {
     player2 = Player(name2, figure2);
     currPlayer = player1;
   };
-  const checkHorizontal = () => ((board[0] !== '') && (board[0] === board[1] && board[1] === board[2]))
-    || ((board[3] !== '') && (board[3] === board[4] && board[4] === board[5]))
-    || ((board[6] !== '') && (board[6] === board[7] && board[7] === board[8]));
+  const checkHorizontal = () => ((board[0] !== '') && (board[0] === board[1] && board[1] === board[2])) ||
+    ((board[3] !== '') && (board[3] === board[4] && board[4] === board[5])) ||
+    ((board[6] !== '') && (board[6] === board[7] && board[7] === board[8]));
 
-  const checkVertical = () => ((board[0] !== '') && (board[0] === board[3]) && (board[0] === board[6]))
-    || ((board[1] !== '') && (board[1] === board[4] && board[4] === board[7]))
-    || ((board[2] !== '') && (board[2] === board[5] && board[5] === board[8]));
+  const checkVertical = () => ((board[0] !== '') && (board[0] === board[3]) && (board[0] === board[6])) ||
+    ((board[1] !== '') && (board[1] === board[4] && board[4] === board[7])) ||
+    ((board[2] !== '') && (board[2] === board[5] && board[5] === board[8]));
 
-  const checkCross = () => ((board[0] !== '') && (board[0] === board[4] && board[4] === board[8]))
-    || ((board[2] !== '') && (board[2] === board[4] && board[4] === board[6]));
+  const checkCross = () => ((board[0] !== '') && (board[0] === board[4] && board[4] === board[8])) ||
+    ((board[2] !== '') && (board[2] === board[4] && board[4] === board[6]));
 
   const checkMatrix = () => checkHorizontal() || checkVertical() || checkCross();
-  const checkDraw = () => board.filter((x) => x === '').length === 0;
+  const checkDraw = () => board.filter(x => x === '').length === 0;
   const move = (index) => {
     if (board[index] !== '') {
       return;
