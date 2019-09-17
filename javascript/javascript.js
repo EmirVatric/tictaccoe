@@ -85,4 +85,7 @@ const Controller = () => {
   };
 };
 
-const game = Controller();
+document.getElementById('startGame').addEventListener('click', () => {
+  const game = Controller();
+  game.startGame();
+});
